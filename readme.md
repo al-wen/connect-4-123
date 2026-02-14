@@ -1,11 +1,11 @@
-Using the provided code that can be downloaded from this github add a new class that inherits from game.cpp in the same way TicTacToe.cpp does and implement a working version of the game Connect 4. The game should be added as a fourth choice from the menu so the choices are Tic Tac Toe, Checkers, Othello and now Connect 4.
+## Connect 4
 
-The game must be playable by both by 2 people and vs. an AI. Your implementation must check for the winning condition, and display that on the right hand side the same way the current setup does for tic-tac-toe. The stopGame() method is expected to clean up and delete any memory allocated.
+# Game
 
-Look at the new Grid.cpp class and see how it is used in Checkers.cpp for a good understanding about laying out a useable grid.
+For this implementation of Connect 4, I used the Tic Tac Toe code as a template to help me get started. I adjusted Application.cpp to include the option of Connect 4, and a way to switch between player first and AI first.
 
-For extra credit, when a game piece is added to the board, make it animate into place instead of just appearing in it's final spot.
+For the Connect 4 portion, I adjusted the Tic Tac Toe board to have the right board. For placing pieces, I would check the piece below with getS() until there was a piece there or it was the bottom of the board. For checking the winner, I used a 2D array, which listed every possible win combination, to check if and who won.
 
-Graphic files are provided for the game pieces called yellow.png and red.png.
+# Negamax AI with Alpha Beta Pruning
 
-For the submission, create a new github based on the above code-base and provide a link to that along with a complete readme.md on how your implementation works.
+For the AI portion, I used the Negamax algorithm with alpha beta pruning. To evaluate the board, I checked every single 4 combination with a similar list of the one used above that was used to check wins. I then evaluated each combination to score the board. For alpha beta pruning, alpha shows the best possible score for the player while beta shows the worst. When alpha is greater than beta, the code would stop searching the branch. This is used to improve efficiency without affecting the outcome.
